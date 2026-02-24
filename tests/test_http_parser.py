@@ -198,7 +198,7 @@ def test_content_length_transfer_encoding(parser) -> None:
         parser.feed_data(text)
 
 
-def test_bad_chunked(parser: HttpRequestParser) -> None:
+def test_bad_chunked(parser) -> None:
     """Test that invalid chunked encoding doesn't allow content-length to be used."""
     text = (
         b"GET / HTTP/1.1\r\nHost: a\r\nTransfer-Encoding: chunked\r\n\r\n0_2e\r\n\r\n"
