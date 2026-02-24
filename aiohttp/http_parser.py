@@ -839,7 +839,7 @@ class HttpPayloadParser:
                             # Verify no LF in the chunk-extension
                             ext = chunk[i:pos]
                             if b"\n" in ext:
-                                exc = BadHttpMessage(
+                                exc = TransferEncodingError(
                                     f"Unexpected LF in chunk-extension: {ext!r}"
                                 )
                                 set_exception(self.payload, exc)
